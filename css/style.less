@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+}
+
+/**----------------------------------------------------------------------------*/
+/* GENERATE FLEX BOX PARAMETERS*/
+/**----------------------------------------------------------------------------*/
+
+.flexBoxer(@align) {
+  .horizontal-@{align}, .vertical-@{align} {
+    justify-content: @align;
+  }
+}
+
+.flexJoin(@f1,@f2,@f3,@f4,@f5) {
+  .horizontal-@{f1}, .horizontal-@{f2}, .horizontal-@{f3}, .horizontal-@{f4}, .horizontal-@{f5} {
+    flex-direction: row;
+  }
+  .vertical-@{f1}, .vertical-@{f2}, .vertical-@{f3}, .vertical-@{f4}, .vertical-@{f5} {
+    flex-direction: column;
+  }
+  .horizontal-@{f1}, .horizontal-@{f2}, .horizontal-@{f3}, .horizontal-@{f4}, .horizontal-@{f5},
+  .vertical-@{f1}, .vertical-@{f2}, .vertical-@{f3}, .vertical-@{f4}, .vertical-@{f5} {
+    display: flex;
+    align-content: stretch;
+    align-items: center;
+    flex-wrap: wrap;
+    &.stretch {
+      align-items: stretch;
+    }
+    &.span-1 {
+      > * {
+        flex-grow: 1;
+      }
+    }
+    .flexGrow(12);
+    &.no-wrap {
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+.flexGrow(@iterator:1) when (@iterator > 0) {
+  &:not(.span-1) > *.span-@{iterator} {
+    flex-grow: @iterator;
+  }
+  .flexGrow((@iterator - 1));
+}
+
+.flexBoxer(~"flex-start");
+.flexBoxer(~"flex-end");
+.flexBoxer(~"space-between");
+.flexBoxer(~"space-around");
+.flexBoxer(~"center");
+.flexJoin(~"flex-start", ~"flex-end", ~"space-between", ~"space-around", ~"center");
+/**----------------------------------------------------------------------------*/
+/** CLOSE FLEX BOX GENERATION */
+/**----------------------------------------------------------------------------*/
+
+/**----------------------------------------------------------------------------*/
+/* HEADING FORMATTING*/
+/**----------------------------------------------------------------------------*/
+.headers(@iterator:1) when (@iterator > 0) {
+  h@{iterator} {
+    font-size:unit((25-@iterator),px) !important;
+    margin-top: unit(2,rem);
+  }
+  .headers((@iterator - 1));
+}
+
+.headers(6);
+/**----------------------------------------------------------------------------*/
+/* CLOSE HEADING FORMATTING*/
+/**----------------------------------------------------------------------------*/

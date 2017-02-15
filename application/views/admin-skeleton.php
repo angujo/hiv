@@ -26,6 +26,7 @@
 
     <!-- Custom CSS -->
     <link href="<?= base_url('css/sb-admin.css'); ?>" rel="stylesheet">
+    <link href="<?= base_url('css/style.css'); ?>" rel="stylesheet">
 
 
     <!-- Custom Fonts -->
