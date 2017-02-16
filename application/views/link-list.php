@@ -1,5 +1,9 @@
 <div class="row">
     <div class="col-xs-12">
+        <h2>News and Events list</h2>
+        <hr/>
+    </div>
+    <div class="col-xs-12 news-events-list">
         <?php foreach (range(0, 12) as $l) { ?>
             <div class="media">
                 <div class="media-left media-middle">

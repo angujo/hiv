@@ -266,3 +266,21 @@ h1 {
 /**----------------------------------------------------------------------------*/
 /* CLOSE HEADING FORMATTING*/
 /**----------------------------------------------------------------------------*/
+.news-events-list .media {
+  border-bottom: .1rem solid #c0c0c0;
+}
+.news-events-list .media .media-heading {
+  font-size: 2rem;
+}
+.news-events-list .media .media-object {
+  max-height: 10rem;
+}
+.news-events-list .media hr {
+  margin: .5rem 0;
+}
+.news-events-list .media .media-left {
+  border-right: .1rem dotted #c0c0c0;
+}
+.news-events-list .media .media-body {
+  padding-left: 1rem;
+}

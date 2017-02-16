@@ -62,8 +62,8 @@
 /**----------------------------------------------------------------------------*/
 .headers(@iterator:1) when (@iterator > 0) {
   h@{iterator} {
-    font-size:unit((25-@iterator),px) !important;
-    margin-top: unit(2,rem);
+    font-size: unit((25-@iterator), px) !important;
+    margin-top: unit(2, rem);
   }
   .headers((@iterator - 1));
 }
@@ -72,3 +72,24 @@
 /**----------------------------------------------------------------------------*/
 /* CLOSE HEADING FORMATTING*/
 /**----------------------------------------------------------------------------*/
+
+.news-events-list {
+  .media {
+    border-bottom: .1rem solid #c0c0c0;
+    .media-heading {
+      font-size: 2rem;
+    }
+    .media-object {
+      max-height: 10rem;
+    }
+    hr {
+      margin: .5rem 0;
+    }
+    .media-left {
+      border-right: .1rem dotted #c0c0c0;
+    }
+    .media-body {
+      padding-left: 1rem;
+    }
+  }
+}
