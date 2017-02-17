@@ -9,8 +9,20 @@
 class MY_Controller extends CI_Controller
 {
     protected $data = [];
+    protected $POST = [];
+    /** @var User */
+    public $user;
+    public $model;
     
-    public function __construct() { parent::__construct(); }
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('basicmodel');
+        $this->POST  = $this->input->post(NULL, TRUE);
+        $this->user  = $this->theUser;
+        $this->model = new Basicmodel();
+        $this->user->sessionSet(get_cookie(HASH_COOKIE_SECURITY));
+    }
     
     protected function view($view)
     {

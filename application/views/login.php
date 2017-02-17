@@ -40,17 +40,21 @@
         <h2 class="text-center">Login Page</h2>
         <div class="text-center"> Enter your username and password below to login.<br/>Only <b>Admin</b> users are allowed to use this interface.</div>
         <hr/>
-        <form class="form-horizontal">
+        <?php if (@$error) { ?>
+            <div class="alert alert-danger"><?= $error; ?></div><?php } ?>
+        <?php if (@$message) { ?>
+            <div class="alert alert-success"><?= $message; ?></div><?php } ?>
+        <form class="form-horizontal" method="post" action="<?= base_url('welcome/'); ?>">
             <div class="form-group">
                 <label for="i-title" class="col-sm-3 control-label">Username or Email</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="i-title" placeholder="Username">
+                    <input type="text" name="usermail" class="form-control" id="i-title" placeholder="Username" value="<?= @$_usermail; ?>">
                 </div>
             </div>
             <div class="form-group">
                 <label for="i-title" class="col-sm-3 control-label">Password</label>
                 <div class="col-sm-9">
-                    <input type="password" class="form-control" id="i-title" placeholder="Password">
+                    <input type="password" name="password" class="form-control" id="i-title" placeholder="Password" value="<?= @$_password; ?>">
                 </div>
             </div>
             <div>
@@ -83,6 +87,11 @@
         </form>
     </div>
 </div>
+<?php if (@$message) { ?>
+    <script>
+        setTimeout("location.href='<?php echo base_url("admin"); ?>'", 3000);
+    </script>
+<?php } ?>
 <!-- jQuery -->
 <script src="<?= base_url('js/jquery.js'); ?>"></script>
 

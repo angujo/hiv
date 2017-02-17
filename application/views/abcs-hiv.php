@@ -16,8 +16,12 @@
 <div class="row">
     <div class="col-xs-12 col-md-10 col-lg-8">
         <div>
-            <form>
-                <textarea class="summernote"></textarea>
+            <?php if (@$error) { ?>
+                <div class="alert alert-danger"><?= $error; ?></div><?php } ?>
+            <?php if (@$message) { ?>
+                <div class="alert alert-success"><?= $message; ?></div><?php } ?>
+            <form method="post" action="<?= base_url('admin/abc'); ?>">
+                <textarea class="summernote" name="content"><?= @$page->content; ?></textarea>
                 <hr/>
                 <div class="clearfix">
                     <button type="submit" class="btn btn-sm btn-primary pull-right">Save</button>

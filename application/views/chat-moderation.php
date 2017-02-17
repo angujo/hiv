@@ -17,8 +17,12 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <form onkeypress="return event.keyCode != 13;">
-                    <input data-role="tagsinput" value="f*ck,sh*t,b*tch" type="text">
+                <?php if (@$error) { ?>
+                    <div class="alert alert-danger"><?= $error; ?></div><?php } ?>
+                <?php if (@$message) { ?>
+                    <div class="alert alert-success"><?= $message; ?></div><?php } ?>
+                <form onkeypress="return event.keyCode != 13;" method="post" action="<?= base_url('admin/chat'); ?>">
+                    <input data-role="tagsinput" value="<?= @$page->content; ?>" type="text" name="keywords">
                     <div class="clearfix">
                         <button type="submit" class="btn btn-sm btn-primary pull-right">Save</button>
                     </div>
