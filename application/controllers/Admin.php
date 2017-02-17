@@ -17,12 +17,19 @@ class Admin extends MY_Controller
     {
         $this->view('chat-moderation');
     }
+    
     function abc()
     {
         $this->view('abcs-hiv');
     }
+    
     function links()
     {
         $this->view('news-links');
+    }
+    
+    function content()
+    {
+        $this->view('content-page');
     }
 }

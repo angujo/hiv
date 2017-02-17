@@ -88,7 +88,7 @@
                     <a href="<?= base_url('admin/links'); ?>"><i class="fa fa-fw fa-link"></i> News Links</a>
                 </li>
                 <li class="<?= 'admin' == $this->uri->segment(1) && 'content' == $this->uri->segment(2) ? 'active' : ''; ?>">
-                    <a href="<?= base_url('admin'); ?>"><i class="fa fa-fw fa-newspaper-o"></i> HIV Content</a>
+                    <a href="<?= base_url('admin/content'); ?>"><i class="fa fa-fw fa-newspaper-o"></i> HIV Content</a>
                 </li>
                 <li class="<?= 'admin' == $this->uri->segment(1) && 'abc' == $this->uri->segment(2) ? 'active' : ''; ?>">
                     <a href="<?= base_url('admin/abc'); ?>"><i class="fa fa-fw fa-list"></i> ABCs of HIV</a>
