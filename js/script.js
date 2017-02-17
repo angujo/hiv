@@ -7,7 +7,7 @@
         $(window).resize(function () {
             resizer();
         });
-        $('textarea.summernote').summernote();
+        $('textarea.summernote').summernote({height:250});
         resizer();
     });
 })(jQuery);

@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <form onkeypress="return event.keyCode != 13;">
-                    <input data-role="tagsinput">
+                    <input data-role="tagsinput" value="f*ck,sh*t,b*tch" type="text">
                     <div class="clearfix">
                         <button type="submit" class="btn btn-sm btn-primary pull-right">Save</button>
                     </div>

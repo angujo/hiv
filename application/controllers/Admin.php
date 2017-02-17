@@ -28,6 +28,12 @@ class Admin extends MY_Controller
         $this->view('news-links');
     }
     
+    
+    function users()
+    {
+        $this->view('users-list');
+    }
+    
     function content()
     {
         $this->view('content-page');

@@ -284,6 +284,27 @@ h1 {
 .news-events-list .media .media-body {
   padding-left: 1rem;
 }
+.content-list .media {
+  border-bottom: .1rem solid #c0c0c0;
+}
+.content-list .media .media-heading {
+  font-size: 2rem;
+}
+.content-list .media .media-object {
+  max-height: 10rem;
+}
+.content-list .media hr {
+  margin: .5rem 0;
+}
+.content-list .media .media-left {
+  border-right: .1rem dotted #c0c0c0;
+}
+.content-list .media .media-body {
+  padding-left: 1rem;
+}
+.content-list .media-object {
+  max-height: 8rem !important;
+}
 fieldset.default {
   border: 1px solid #c0c0c0;
   border-radius: .5rem;
@@ -299,4 +320,12 @@ fieldset.default legend {
 }
 .tab-pane {
   padding: 1rem;
+}
+.users-list i {
+  margin-right: 2rem;
+}
+.login-page {
+  padding: 2rem;
+  background: #f7f7f7;
+  min-height: 3rem;
 }

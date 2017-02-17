@@ -16,6 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="HIV Anti-stigma">
     <meta name="author" content="Barrack Angujo">
+    <meta name="twitter" content="@angujomondi">
 
     <title>HIV-Antistigma : Admin Portal</title>
 
@@ -94,7 +95,7 @@
                     <a href="<?= base_url('admin/abc'); ?>"><i class="fa fa-fw fa-list"></i> ABCs of HIV</a>
                 </li>
                 <li class="<?= 'admin' == $this->uri->segment(1) && 'users' == $this->uri->segment(2) ? 'active' : ''; ?>">
-                    <a href="<?= base_url('admin/'); ?>"><i class="fa fa-fw fa-users"></i> Users</a>
+                    <a href="<?= base_url('admin/users'); ?>"><i class="fa fa-fw fa-users"></i> Users</a>
                 </li>
             </ul>
         </div>

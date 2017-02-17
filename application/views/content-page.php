@@ -23,7 +23,7 @@
                                 </a>
                             </div>
                             <hr/>
-                            <?php $this->load->view('link-form'); ?>
+                            <?php $this->load->view('content-form'); ?>
                         </div>
                         <div class="collapse in news-link-holder" id="collapseExample">
                             <div class="clearfix">
@@ -32,27 +32,43 @@
                                 </a>
                             </div>
                             <hr/>
-                            <?php $this->load->view('link-list'); ?>
+                            <?php $this->load->view('content-list'); ?>
                         </div>
                     </div>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="t-categories">
-                <div>
-                <fieldset class="default">
-                    <legend>Category Entry/Edit</legend>
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label for="i-cat-name" class="col-sm-2 control-label">Name</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="i-cat-name" placeholder="Category Name">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">
+                        <div>
+                            <fieldset class="default">
+                                <legend>Category Entry/Edit</legend>
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="i-cat-name" class="col-sm-2 control-label">Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="i-cat-name" placeholder="Category Name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-sm btn-primary pull-right">Save</button>
+                                    </div>
+                                </form>
+                            </fieldset>
+                            <hr/>
+                            <div>
+                                <ul class="list-group">
+                                    <?php foreach (range(1, rand(5, 25)) as $c) { ?>
+                                        <li class="list-group-item clearfix">
+                                            <div class="pull-right"><a><i class="fa fa-pencil fa-fw"></i></a><a class="text-warning"><i class="fa fa-trash fa-fw"></i></a></div>
+                                            <div><b>The title here</b></div>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-sm btn-primary pull-right">Save</button>
-                        </div>
-                    </form>
-                </fieldset></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
