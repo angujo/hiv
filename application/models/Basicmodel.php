@@ -35,6 +35,12 @@ class Basicmodel extends MY_Model
         return $this->DB->affected_rows();
     }
     
+    function updateUser($details, $id)
+    {
+        $this->DB->where('id', (int)$id)->update('user', $details);
+        return $this->DB->affected_rows();
+    }
+    
     function getPaged($id = NULL, $keyCode = NULL)
     {
         if (is_null($id) && is_null($keyCode)) return NULL;
@@ -55,5 +61,18 @@ class Basicmodel extends MY_Model
     {
         $res = @$this->DB->where('is_link', 1)->get('category_link');
         return $res->num_rows() ? $res->result() : [];
+    }
+    
+    function users()
+    {
+        $res = @$this->DB->get('user');
+        return $res->num_rows() ? $res->result() : [];
+    }
+    
+    function user($id)
+    {
+        $this->DB->where('id', (int)$id);
+        $res = @$this->DB->get('user', 1)->row();
+        return $res;
     }
 }

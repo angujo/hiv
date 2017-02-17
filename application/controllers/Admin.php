@@ -28,13 +28,13 @@ class Admin extends MY_Controller
             if (!$page) {
                 $d['created_by'] = User::$C_USER->id;
                 $d['created']    = date('Y-m-d H:i:s');
-                if(!$this->model->newPage($d)) $this->data['Error encountered inserting the new record!'];
+                if (!$this->model->newPage($d)) $this->data['Error encountered inserting the new record!'];
             } else {
                 $d['updated']    = date('Y-m-d H:i:s');
                 $d['updated_by'] = User::$C_USER->id;
-                if(!$this->model->updatePage($d, $page->id)) $this->data['error']='Error updating the data';
+                if (!$this->model->updatePage($d, $page->id)) $this->data['error'] = 'Error updating the data';
             }
-            $page = $this->model->getPaged(NULL, PAGED_CHAT_MODERATION);
+            $page                  = $this->model->getPaged(NULL, PAGED_CHAT_MODERATION);
             $this->data['message'] = @$this->data['error'] ? '' : 'Chat Keywords Successfully saved!';
         }
         $this->data['page'] = $page;
@@ -54,9 +54,9 @@ class Admin extends MY_Controller
             } else {
                 $d['updated']    = date('Y-m-d H:i:s');
                 $d['updated_by'] = User::$C_USER->id;
-                if(!$this->model->updatePage($d, $page->id)) $this->data['error']='Error updating the data';
+                if (!$this->model->updatePage($d, $page->id)) $this->data['error'] = 'Error updating the data';
             }
-            $page = $this->model->getPaged(NULL, PAGED_ABC);
+            $page                  = $this->model->getPaged(NULL, PAGED_ABC);
             $this->data['message'] = @$this->data['error'] ? '' : 'Successfully saved!';
         }
         $this->data['page'] = $page;
@@ -100,11 +100,53 @@ class Admin extends MY_Controller
     
     function users()
     {
+        $this->data['users'] = $this->model->users();
         $this->view('users-list');
     }
     
     function content()
     {
         $this->view('content-page');
+    }
+    
+    function set_admin($user, $v)
+    {
+        header('Content-Type: application/json;charset:utf8;');
+        $d         = [];
+        $d['code'] = 0;
+        $d['msg']  = 'User admin settings successfully changed!';
+        if (!$this->model->user($user)) {
+            $d['msg'] = 'The user doesn\'t exist!';
+            echo json_encode($d);
+            die();
+        }
+        if (!$this->model->updateUser(['is_admin'=>(int)$v], $user)) {
+            $d['msg'] = 'Error changing the user status!';
+            echo json_encode($d);
+            die();
+        }
+        $d['code'] = 1;
+        echo json_encode($d);
+        die();
+    }
+    function set_enabled($user, $v)
+    {
+        header('Content-Type: application/json;charset:utf8;');
+        $d         = [];
+        $d['code'] = 0;
+        $d['msg']  = 'User access settings successfully changed!';
+        if (!$this->model->user($user)) {
+            $d['msg'] = 'The user doesn\'t exist!';
+            echo json_encode($d);
+            die();
+        }
+        if (!$this->model->updateUser(['is_enabled'=>(int)$v], $user)) {
+            $d['msg'] = 'Error changing the user status!';
+            echo json_encode($d);
+            die();
+        }
+        $d['code'] = 1;
+        echo json_encode($d);
+        die();
     }
 }
